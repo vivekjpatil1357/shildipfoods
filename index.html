@@ -1,402 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ShildipFoods – Pure Makhane, Pure Health</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHILPIFOOD</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --saffron:#E07B39;
-  --saffron-light:#F5A462;
-  --saffron-dark:#B85E20;
-  --cream:#FDF6ED;
-  --cream2:#FAF0DC;
-  --green:#2D6A4F;
-  --green-light:#40916C;
-  --brown:#5C3D1E;
-  --text:#2C1A0E;
-  --text2:#6B4226;
-  --white:#FFFFFF;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
 }
-html{scroll-behavior:smooth;}
-body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(253,246,237,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(224,123,57,0.2);padding:0 5%;}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo-icon{width:42px;height:42px;background:var(--saffron);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;}
-.logo-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--brown);line-height:1;}
-.logo-text span{display:block;font-size:10px;font-family:'Poppins',sans-serif;font-weight:400;color:var(--saffron);letter-spacing:2px;text-transform:uppercase;}
-.nav-links{display:flex;gap:32px;list-style:none;}
-.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--text2);transition:color 0.2s;}
-.nav-links a:hover{color:var(--saffron);}
-.nav-cta{background:var(--saffron);color:var(--white);padding:10px 24px;border-radius:24px;font-size:14px;font-weight:600;text-decoration:none;transition:background 0.2s,transform 0.1s;}
-.nav-cta:hover{background:var(--saffron-dark);transform:scale(1.03);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.hamburger span{width:24px;height:2px;background:var(--brown);border-radius:2px;}
-.mobile-menu{display:none;position:fixed;top:68px;left:0;width:100%;background:var(--cream);padding:20px 5%;border-bottom:1px solid rgba(224,123,57,0.2);z-index:999;}
-.mobile-menu.open{display:flex;flex-direction:column;gap:16px;}
-.mobile-menu a{text-decoration:none;color:var(--text2);font-size:15px;font-weight:500;padding:8px 0;border-bottom:1px solid rgba(224,123,57,0.1);}
-.hero{min-height:100vh;padding:100px 5% 60px;display:flex;align-items:center;background:linear-gradient(135deg,var(--cream) 0%,var(--cream2) 50%,#FDECD2 100%);position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(224,123,57,0.12) 0%,transparent 70%);}
-.hero-content{flex:1;max-width:560px;z-index:2;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(224,123,57,0.12);border:1px solid rgba(224,123,57,0.3);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;color:var(--saffron-dark);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:54px;line-height:1.15;font-weight:700;color:var(--brown);margin-bottom:20px;}
-.hero h1 span{color:var(--saffron);display:block;}
-.hero p{font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:36px;max-width:440px;}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary{background:var(--saffron);color:var(--white);padding:14px 32px;border-radius:28px;font-weight:600;font-size:15px;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;}
-.btn-primary:hover{background:var(--saffron-dark);transform:translateY(-2px);}
-.btn-secondary{background:transparent;color:var(--green);padding:14px 32px;border-radius:28px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid var(--green);transition:all 0.2s;}
-.btn-secondary:hover{background:var(--green);color:var(--white);}
-.hero-image{flex:1;display:flex;justify-content:center;align-items:center;z-index:2;}
-.hero-img-wrap{position:relative;width:420px;height:420px;}
-.hero-img-wrap img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid var(--cream);box-shadow:0 20px 60px rgba(224,123,57,0.25);}
-.hero-float-badge{position:absolute;bottom:30px;left:-20px;background:var(--white);border-radius:16px;padding:12px 18px;box-shadow:0 8px 24px rgba(0,0,0,0.1);display:flex;align-items:center;gap:10px;}
-.hero-float-badge .num{font-size:22px;font-weight:700;color:var(--saffron);font-family:'Playfair Display',serif;}
-.hero-float-badge .txt{font-size:11px;color:var(--text2);line-height:1.4;}
-.hero-float2{position:absolute;top:20px;right:-10px;background:var(--green);border-radius:16px;padding:10px 16px;color:var(--white);font-size:12px;font-weight:600;text-align:center;}
-.stats{background:var(--saffron);padding:40px 5%;}
-.stats-inner{display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;max-width:900px;margin:0 auto;}
-.stat-item{text-align:center;color:var(--white);}
-.stat-item .num{font-size:36px;font-weight:700;font-family:'Playfair Display',serif;}
-.stat-item .lbl{font-size:13px;opacity:0.85;margin-top:4px;}
-section{padding:80px 5%;}
-.section-header{text-align:center;margin-bottom:56px;}
-.section-tag{display:inline-block;background:rgba(224,123,57,0.1);color:var(--saffron-dark);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:14px;}
-.section-header h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--brown);line-height:1.2;}
-.section-header p{color:var(--text2);font-size:15px;margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.8;}
-.about{background:var(--cream);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;}
-.about-img{border-radius:20px;overflow:hidden;position:relative;}
-.about-img img{width:100%;height:420px;object-fit:cover;}
-.about-img-badge{position:absolute;bottom:20px;right:20px;background:var(--white);padding:14px 18px;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.1);font-size:13px;font-weight:600;color:var(--green);}
-.about-content h3{font-family:'Playfair Display',serif;font-size:32px;color:var(--brown);margin-bottom:16px;}
-.about-content p{color:var(--text2);line-height:1.9;margin-bottom:20px;font-size:15px;}
-.about-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
-.fact-card{background:var(--cream2);border-radius:12px;padding:16px;border-left:4px solid var(--saffron);}
-.fact-card .icon{font-size:20px;margin-bottom:6px;}
-.fact-card strong{display:block;font-size:14px;font-weight:600;color:var(--brown);}
-.fact-card span{font-size:12px;color:var(--text2);}
-.products{background:#FDF9F3;}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1200px;margin:0 auto;}
-.product-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:transform 0.2s,box-shadow 0.2s;cursor:pointer;}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(224,123,57,0.18);}
-.product-img{width:100%;height:220px;object-fit:cover;}
-.product-body{padding:20px;}
-.product-tag{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--saffron);margin-bottom:8px;}
-.product-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--brown);margin-bottom:8px;}
-.product-desc{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px;}
-.product-footer{display:flex;justify-content:space-between;align-items:center;}
-.price{font-size:20px;font-weight:700;color:var(--saffron);font-family:'Playfair Display',serif;}
-.price-sub{font-size:11px;color:var(--text2);font-weight:400;}
-.add-btn{background:var(--saffron);color:var(--white);border:none;padding:9px 18px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.2s;}
-.add-btn:hover{background:var(--saffron-dark);}
-.badge-new{background:var(--green);color:var(--white);font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;margin-left:8px;vertical-align:middle;}
-.badge-hot{background:#E24B4A;color:var(--white);font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;margin-left:8px;vertical-align:middle;}
-.benefits{background:var(--green);color:var(--white);}
-.benefits .section-tag{background:rgba(255,255,255,0.15);color:var(--white);}
-.benefits .section-header h2{color:var(--white);}
-.benefits .section-header p{color:rgba(255,255,255,0.75);}
-.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1100px;margin:0 auto;}
-.benefit-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:28px 24px;text-align:center;transition:background 0.2s;}
-.benefit-card:hover{background:rgba(255,255,255,0.14);}
-.benefit-icon{width:60px;height:60px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 16px;}
-.benefit-card h4{font-size:16px;font-weight:600;margin-bottom:8px;}
-.benefit-card p{font-size:13px;opacity:0.8;line-height:1.7;}
-.testimonials{background:var(--cream);}
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto;}
-.testi-card{background:var(--white);border-radius:18px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,0.05);}
-.stars{color:var(--saffron);font-size:16px;margin-bottom:12px;letter-spacing:2px;}
-.testi-text{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:20px;font-style:italic;}
-.testi-author{display:flex;align-items:center;gap:12px;}
-.testi-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;}
-.testi-name{font-weight:600;font-size:14px;color:var(--brown);}
-.testi-loc{font-size:12px;color:var(--text2);}
-.why{background:#FDF9F3;}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;}
-.why-img img{width:100%;height:460px;object-fit:cover;border-radius:20px;}
-.why-content h3{font-family:'Playfair Display',serif;font-size:34px;color:var(--brown);margin-bottom:24px;}
-.why-list{list-style:none;display:flex;flex-direction:column;gap:18px;}
-.why-list li{display:flex;align-items:flex-start;gap:14px;font-size:14px;color:var(--text2);line-height:1.7;}
-.why-check{width:24px;height:24px;background:var(--saffron);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:12px;flex-shrink:0;margin-top:2px;}
-.newsletter{background:var(--saffron);padding:60px 5%;text-align:center;}
-.newsletter h2{font-family:'Playfair Display',serif;font-size:34px;color:var(--white);margin-bottom:12px;}
-.newsletter p{color:rgba(255,255,255,0.85);font-size:15px;margin-bottom:32px;}
-.newsletter-form{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
-.newsletter-form input{flex:1;min-width:240px;padding:14px 20px;border-radius:28px;border:none;font-size:14px;font-family:'Poppins',sans-serif;outline:none;}
-.newsletter-form button{background:var(--brown);color:var(--white);padding:14px 28px;border-radius:28px;border:none;font-size:14px;font-weight:600;font-family:'Poppins',sans-serif;cursor:pointer;}
-footer{background:var(--brown);color:rgba(255,255,255,0.85);padding:60px 5% 24px;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
-.footer-desc{font-size:13px;line-height:1.8;margin-top:14px;opacity:0.75;}
-.footer-social{display:flex;gap:12px;margin-top:20px;}
-.social-icon{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;color:var(--white);transition:background 0.2s;}
-.social-icon:hover{background:var(--saffron);}
-.footer-col h4{font-size:14px;font-weight:600;color:var(--white);margin-bottom:18px;}
-.footer-col ul{list-style:none;}
-.footer-col ul li{margin-bottom:10px;}
-.footer-col ul li a{text-decoration:none;color:rgba(255,255,255,0.65);font-size:13px;transition:color 0.2s;}
-.footer-col ul li a:hover{color:var(--saffron-light);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px;opacity:0.6;}
-.toast{position:fixed;bottom:30px;right:30px;background:var(--green);color:var(--white);padding:14px 24px;border-radius:12px;font-size:14px;font-weight:500;z-index:9999;transform:translateY(100px);opacity:0;transition:all 0.3s;}
-.toast.show{transform:translateY(0);opacity:1;}
-@media(max-width:900px){
-.hero{flex-direction:column;text-align:center;padding:100px 5% 60px;}
-.hero h1{font-size:38px;}
-.hero-image{margin-top:40px;}
-.hero-img-wrap{width:300px;height:300px;}
-.hero-btns{justify-content:center;}
-.about-grid,.why-grid{grid-template-columns:1fr;}
-.about-img,.why-img{order:-1;}
-.footer-grid{grid-template-columns:1fr 1fr;}
-.nav-links,.nav-cta{display:none;}
-.hamburger{display:flex;}
+
+/* NAVIGATION */
+nav {
+    background: #1b5e20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    color: white;
+    position: sticky;
+    top: 0;
 }
-@media(max-width:600px){
-.hero h1{font-size:30px;}
-.stats-inner{gap:30px;}
-.footer-grid{grid-template-columns:1fr;}
-.footer-bottom{flex-direction:column;gap:8px;text-align:center;}
-.about-facts{grid-template-columns:1fr;}
+
+nav h2 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #a5d6a7;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                      url('ma5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #43a047;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* SECTION */
+.section {
+    padding: 50px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 250px;
+    padding: 20px;
+    background: #f1f8e9;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* FOOTER */
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 15px;
 }
 </style>
 </head>
+
 <body>
+
+<!-- NAV TAG -->
 <nav>
-  <div class="nav-inner">
-    <a class="logo" href="#">
-      <div class="logo-icon">🌿</div>
-      <div class="logo-text">ShildipFoods<span>Pure • Natural • Healthy</span></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#about">About Makhane</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#benefits">Benefits</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <h1>SHILPIFOOD</h1>
+    <ul>
+        <li onclick="scrollToSection('home')">Home</li>
+        <li onclick="scrollToSection('about')">About</li>
+        <li onclick="scrollToSection('products')">Products</li>
+        <li onclick="contactMsg()">Contact</li>
     </ul>
-    <a class="nav-cta" href="#products">Shop Now</a>
-    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-  </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="toggleMenu()">About Makhane</a>
-  <a href="#products" onclick="toggleMenu()">Products</a>
-  <a href="#benefits" onclick="toggleMenu()">Benefits</a>
-  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="#products" onclick="toggleMenu()" style="color:var(--saffron);font-weight:600;">Shop Now →</a>
-</div>
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">🌾 India's Favourite Superfood</div>
-    <h1>Pure & Crispy<span>Makhane</span>Delivered to You</h1>
-    <p>Handpicked from the pristine ponds of Bihar, our premium fox nuts are packed with nutrition and irresistible flavour. 100% natural, no preservatives — snacking ka naya andaaz!</p>
-    <div class="hero-btns">
-      <a class="btn-primary" href="#products">Shop Now 🛒</a>
-      <a class="btn-secondary" href="#about">Learn More</a>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div>
+        <h1>Healthy Makhana Snacks</h1>
+        <p>Crunchy | Organic | Delicious</p>
+        <button onclick="goToPage()">Explore Now</button>
     </div>
-  </div>
-  <div class="hero-image">
-    <div class="hero-img-wrap">
-      <img src="https://images.unsplash.com/photo-1626201920106-3d41cf8ce3b7?w=500&q=80" alt="Fresh Premium Makhane"/>
-      <div class="hero-float-badge"><div><div class="num">500+</div><div class="txt">Happy Customers<br>Across India</div></div></div>
-      <div class="hero-float2">✅ FSSAI Certified<br>100% Natural</div>
-    </div>
-  </div>
 </section>
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat-item"><div class="num">50,000+</div><div class="lbl">Orders Delivered</div></div>
-    <div class="stat-item"><div class="num">100%</div><div class="lbl">Natural & Pure</div></div>
-    <div class="stat-item"><div class="num">15+</div><div class="lbl">Flavour Varieties</div></div>
-    <div class="stat-item"><div class="num">Pan India</div><div class="lbl">Free Delivery ₹499+</div></div>
-    <div class="stat-item"><div class="num">4.8 ⭐</div><div class="lbl">Average Rating</div></div>
-  </div>
-</div>
-<section class="about" id="about">
-  <div class="section-header">
-    <div class="section-tag">What is Makhana?</div>
-    <h2>India ka Superfood — Fox Nuts</h2>
-    <p>Makhana, also called Fox Nuts or Lotus Seeds, has been part of Indian culture for thousands of years — from religious offerings to modern healthy snacking.</p>
-  </div>
-  <div class="about-grid">
-    <div class="about-img">
-      <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=600&q=80" alt="Makhane close up"/>
-      <div class="about-img-badge">🌿 Harvested from Bihar's Ponds</div>
-    </div>
-    <div class="about-content">
-      <h3>Ancient Superfood, Modern Snacking</h3>
-      <p>Makhana (Euryale ferox) grows in the slow-moving ponds and wetlands of Bihar, Assam, and Manipur. India produces over 90% of the world's makhana, making it a truly desi superfood with global recognition.</p>
-      <p>At ShildipFoods, we source our makhane directly from trusted farmers in Darbhanga, Bihar — the makhana capital of the world — ensuring freshness, quality, and fair trade with every pack.</p>
-      <div class="about-facts">
-        <div class="fact-card"><div class="icon">🌾</div><strong>Naturally Grown</strong><span>No pesticides, pond-harvested</span></div>
-        <div class="fact-card"><div class="icon">⚡</div><strong>High Protein</strong><span>9.7g protein per 100g</span></div>
-        <div class="fact-card"><div class="icon">🧘</div><strong>Low Calorie</strong><span>347 kcal per 100g</span></div>
-        <div class="fact-card"><div class="icon">✅</div><strong>Gluten Free</strong><span>Perfect for all diets</span></div>
-      </div>
-    </div>
-  </div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>About Makhana</h2>
+    <p>Makhana (Fox Nuts) is a super healthy snack rich in protein, fiber and antioxidants.</p>
 </section>
-<section class="products" id="products">
-  <div class="section-header">
-    <div class="section-tag">Our Products</div>
-    <h2>Hamare Flavourful Makhane</h2>
-    <p>From classic plain to bold masaledaar — there's a ShildipFoods pack for every mood, every occasion.</p>
-  </div>
-  <div class="products-grid">
-    <div class="product-card">
-      <img class="product-img" src="https://images.unsplash.com/photo-1597645587822-e99fa5d0d3b3?w=500&q=80" alt="Classic Plain Makhana"/>
-      <div class="product-body">
-        <div class="product-tag">Bestseller</div>
-        <div class="product-name">Classic Plain Makhana <span class="badge-hot">HOT</span></div>
-        <div class="product-desc">Sun-dried, lightly roasted fox nuts in their purest form. Perfect for fasting, children, and mindful snacking.</div>
-        <div class="product-footer"><div><span class="price">₹199</span><span class="price-sub"> / 200g</span></div><button class="add-btn" onclick="addToCart('Classic Plain Makhana')">Add to Cart</button></div>
-      </div>
+
+<!-- PRODUCTS -->
+<section id="products" class="section">
+    <h2>Our Products</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="ma0.jpg" alt="Roasted Makhana">
+            <h3>Roasted</h3>
+            <p>Light and crunchy snack</p>
+        </div>
+        <div class="card">
+            <img src="ma3.png" alt="Roasted Makhana">
+            <h3>Masala</h3>
+            <p>Spicy and flavorful</p>
+        </div>
+        <div class="card">
+             <img src="ma4.jpg" alt="Flavored Makhana">
+            <h3>Flavored</h3>
+            <p>flavor-coated makhana</p>
+        </div>
     </div>
-    <div class="product-card">
-      <img class="product-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&q=80" alt="Masala Makhana"/>
-      <div class="product-body">
-        <div class="product-tag">Fan Favourite</div>
-        <div class="product-name">Masala Magic Makhana <span class="badge-hot">🔥</span></div>
-        <div class="product-desc">Tangy chaat masala, amchur, and roasted jeera — every bite is an explosion of Indian spices.</div>
-        <div class="product-footer"><div><span class="price">₹229</span><span class="price-sub"> / 200g</span></div><button class="add-btn" onclick="addToCart('Masala Magic Makhana')">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <img class="product-img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80" alt="Peri Peri Makhana"/>
-      <div class="product-body">
-        <div class="product-tag">New Launch</div>
-        <div class="product-name">Peri Peri Makhana <span class="badge-new">NEW</span></div>
-        <div class="product-desc">Bold, fiery, and absolutely addictive. Our Peri Peri blend is for those who like their snacks with a kick!</div>
-        <div class="product-footer"><div><span class="price">₹249</span><span class="price-sub"> / 200g</span></div><button class="add-btn" onclick="addToCart('Peri Peri Makhana')">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <img class="product-img" src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=500&q=80" alt="Butter Makhana"/>
-      <div class="product-body">
-        <div class="product-tag">Rich & Creamy</div>
-        <div class="product-name">Butter Makhana</div>
-        <div class="product-desc">Slow-roasted in real desi ghee and seasoned with Himalayan pink salt. Rich, buttery, and utterly indulgent.</div>
-        <div class="product-footer"><div><span class="price">₹269</span><span class="price-sub"> / 200g</span></div><button class="add-btn" onclick="addToCart('Butter Makhana')">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <img class="product-img" src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?w=500&q=80" alt="Mint Makhana"/>
-      <div class="product-body">
-        <div class="product-tag">Fresh & Zesty</div>
-        <div class="product-name">Pudina Makhana <span class="badge-new">NEW</span></div>
-        <div class="product-desc">Crispy makhane tossed in fresh mint and lemon seasoning. Refreshing, light, and guilt-free!</div>
-        <div class="product-footer"><div><span class="price">₹219</span><span class="price-sub"> / 200g</span></div><button class="add-btn" onclick="addToCart('Pudina Makhana')">Add to Cart</button></div>
-      </div>
-    </div>
-    <div class="product-card">
-      <img class="product-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80" alt="Makhana Value Pack"/>
-      <div class="product-body">
-        <div class="product-tag">Best Value 🎉</div>
-        <div class="product-name">Family Value Pack</div>
-        <div class="product-desc">Get 5 packs of your choice at a special combo price. Perfect for families, gifting, and bulk buying!</div>
-        <div class="product-footer"><div><span class="price">₹899</span><span class="price-sub"> / 5×200g</span></div><button class="add-btn" onclick="addToCart('Family Value Pack')">Add to Cart</button></div>
-      </div>
-    </div>
-  </div>
 </section>
-<section class="benefits" id="benefits">
-  <div class="section-header">
-    <div class="section-tag">Health Benefits</div>
-    <h2>Why Makhana is a Superfood</h2>
-    <p>Nutritionists, dieticians, and Ayurveda experts have long praised makhana for its incredible health properties.</p>
-  </div>
-  <div class="benefits-grid">
-    <div class="benefit-card"><div class="benefit-icon">💪</div><h4>High Protein</h4><p>More protein than most nuts — great for muscle building and keeping you full longer.</p></div>
-    <div class="benefit-card"><div class="benefit-icon">🫀</div><h4>Heart Healthy</h4><p>Low sodium and rich in magnesium — supports healthy blood pressure and cardiovascular health.</p></div>
-    <div class="benefit-card"><div class="benefit-icon">🩸</div><h4>Diabetic Friendly</h4><p>Low glycaemic index means blood sugar stays stable. A doctor-recommended snack for diabetics.</p></div>
-    <div class="benefit-card"><div class="benefit-icon">🧠</div><h4>Brain Booster</h4><p>Rich in thiamine that supports cognitive function and helps in production of key neurotransmitters.</p></div>
-    <div class="benefit-card"><div class="benefit-icon">⚖️</div><h4>Weight Loss</h4><p>Only 347 kcal per 100g with high fibre content — keeps hunger at bay and supports weight management.</p></div>
-    <div class="benefit-card"><div class="benefit-icon">🦴</div><h4>Bone Strength</h4><p>Rich in calcium and phosphorus — essential for maintaining strong bones and teeth.</p></div>
-  </div>
-</section>
-<section class="testimonials" id="reviews">
-  <div class="section-header">
-    <div class="section-tag">Customer Reviews</div>
-    <h2>Grahak Kya Kehte Hain</h2>
-    <p>Don't just take our word for it — here's what our happy customers across India have to say.</p>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <div class="testi-text">"Makhane ka taste aur freshness ekdum best hai! Maine bahut saare brands try kiye hain, lekin ShildipFoods ka quality sabse upar hai. Ghar pe sabko bahut pasand aaya!"</div>
-      <div class="testi-author"><img class="testi-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma"/><div><div class="testi-name">Priya Sharma</div><div class="testi-loc">📍 Mumbai, Maharashtra</div></div></div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <div class="testi-text">"Masala Makhana is literally addictive! Office mein chips ki jagah ab yahi khate hain hum. Healthy bhi, tasty bhi. Delivery bhi super fast thi — 2 din mein aa gaya!"</div>
-      <div class="testi-author"><img class="testi-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Verma"/><div><div class="testi-name">Rahul Verma</div><div class="testi-loc">📍 Bengaluru, Karnataka</div></div></div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <div class="testi-text">"I order the Plain Makhana every month for my kids. Pure, no preservatives, and FSSAI certified — as a mother, I feel safe giving this to my children. Highly recommend!"</div>
-      <div class="testi-author"><img class="testi-avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Anita Joshi"/><div><div class="testi-name">Anita Joshi</div><div class="testi-loc">📍 Pune, Maharashtra</div></div></div>
-    </div>
-  </div>
-</section>
-<section class="why">
-  <div class="why-grid">
-    <div class="why-img"><img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80" alt="Farm Fresh Makhana"/></div>
-    <div class="why-content">
-      <h3>Farm to Fork — Seedha Khet Se Aapke Ghar Tak</h3>
-      <ul class="why-list">
-        <li><div class="why-check">✓</div><div><strong>Direct from Bihar's Farmers</strong> — We work directly with over 200 farmer families in Darbhanga and Madhubani districts.</div></li>
-        <li><div class="why-check">✓</div><div><strong>Zero Artificial Preservatives</strong> — Only natural spices, desi ghee, and Himalayan pink salt. No artificial colours or chemicals.</div></li>
-        <li><div class="why-check">✓</div><div><strong>FSSAI Certified & Lab Tested</strong> — Every batch is tested for quality and safety before it reaches your doorstep.</div></li>
-        <li><div class="why-check">✓</div><div><strong>Eco-Friendly Packaging</strong> — Our pouches are recyclable and food-safe. Committed to keeping India green.</div></li>
-        <li><div class="why-check">✓</div><div><strong>Pan India Free Delivery on ₹499+</strong> — We deliver to all 28 states. Order before 2 PM for same-day dispatch.</div></li>
-        <li><div class="why-check">✓</div><div><strong>7-Day Easy Returns</strong> — Not satisfied? We'll replace or refund — no questions asked.</div></li>
-      </ul>
-    </div>
-  </div>
-</section>
-<div class="newsletter" id="contact">
-  <h2>Get 10% Off Your First Order!</h2>
-  <p>Subscribe to our newsletter for exclusive deals, new flavour launches, and healthy eating tips.</p>
-  <div class="newsletter-form">
-    <input type="email" placeholder="Apna email daalo..." id="emailInput"/>
-    <button onclick="subscribe()">Subscribe & Save 🎉</button>
-  </div>
-</div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a class="logo" href="#" style="display:inline-flex;">
-        <div class="logo-icon">🌿</div>
-        <div class="logo-text" style="color:white;">ShildipFoods<span style="color:#F5A462;">Pure • Natural • Healthy</span></div>
-      </a>
-      <p class="footer-desc">ShildipFoods is on a mission to bring the healthiest, tastiest makhane from Bihar's farms to every Indian home. Pure ingredients, honest pricing, and love in every pack.</p>
-      <div class="footer-social">
-        <a class="social-icon" href="#">f</a>
-        <a class="social-icon" href="#">in</a>
-        <a class="social-icon" href="#">yt</a>
-        <a class="social-icon" href="#">tw</a>
-      </div>
-    </div>
-    <div class="footer-col"><h4>Products</h4><ul><li><a href="#">Classic Plain</a></li><li><a href="#">Masala Magic</a></li><li><a href="#">Peri Peri</a></li><li><a href="#">Butter Makhana</a></li><li><a href="#">Pudina Fresh</a></li><li><a href="#">Family Pack</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Our Farmers</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></div>
-    <div class="footer-col"><h4>Support</h4><ul><li><a href="#">Track Order</a></li><li><a href="#">Returns & Refunds</a></li><li><a href="#">FAQs</a></li><li><a href="#">Contact Us</a></li><li><a href="#">WhatsApp: 98XXXXXX00</a></li></ul></div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 ShildipFoods. All rights reserved. Made with ❤️ in India 🇮🇳</span>
-    <span>FSSAI Lic. No: 123456789012 | GST: 27XXXXX1234X1ZX</span>
-  </div>
+    <p>© 2026 SHILPIFOOD</p>
 </footer>
-<div class="toast" id="toast"></div>
+
 <script>
-function toggleMenu(){var m=document.getElementById('mobileMenu');m.classList.toggle('open');}
-function addToCart(name){showToast('🛒 '+name+' added to cart!');}
-function subscribe(){var e=document.getElementById('emailInput').value;if(!e||!e.includes('@')){showToast('Please enter a valid email!');return;}showToast('🎉 Subscribed! Your 10% coupon: WELCOME10');document.getElementById('emailInput').value='';}
-function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3000);}
-window.addEventListener('scroll',function(){var nav=document.querySelector('nav');if(window.scrollY>50){nav.style.boxShadow='0 2px 20px rgba(0,0,0,0.08)';}else{nav.style.boxShadow='none';}});
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var href=this.getAttribute('href');if(href.length>1){e.preventDefault();var target=document.querySelector(href);if(target){target.scrollIntoView({behavior:'smooth'});}}});});
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({behavior: "smooth"});
+}
+
+function goToPage() {
+    window.location.href = "abc.html"; // change page name if needed
+}
+
+function contactMsg() {
+    alert("Contact us at: SHILPIFOOD@email.com");
+}
 </script>
+
+
 </body>
 </html>
