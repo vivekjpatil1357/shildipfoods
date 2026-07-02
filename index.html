@@ -1,181 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHILDIPFOOD</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-}
+<title>Makhana | Super Food</title>
 
-/* NAVIGATION */
-nav {
-    background: #1b5e20;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 10px;
-    color: white;
-    position: sticky;
-    top: 0;
-}
+<link rel="stylesheet" href="style.css">
 
-nav h2 {
-    margin: 0;
-}
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+rel="stylesheet">
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-nav ul li {
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-nav ul li:hover {
-    color: #a5d6a7;
-}
-
-/* HERO */
-.hero {
-    height: 90vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                      url('ma5.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 50px;
-}
-
-.hero button {
-    margin-top: 15px;
-    padding: 12px 20px;
-    background: #43a047;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* SECTION */
-.section {
-    padding: 50px;
-    text-align: center;
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.card {
-    width: 250px;
-    padding: 20px;
-    background: #f1f8e9;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-}
-.card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-/* FOOTER */
-footer {
-    background: #1b5e20;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-</style>
 </head>
 
 <body>
 
-<!-- NAV TAG -->
+<header>
+
 <nav>
-    <h1>SHILDIPFOOD</h1>
-    <ul>
-        <li onclick="scrollToSection('home')">Home</li>
-        <li onclick="scrollToSection('about')">About</li>
-        <li onclick="scrollToSection('products')">Products</li>
-        <li onclick="contactMsg()">Contact</li>
-    </ul>
+
+<div class="logo">
+🌿 Nackito
+</div>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#benefits">Benefits</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#nutrition">Nutrition</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
 </nav>
 
-<!-- HERO -->
-<section id="home" class="hero">
-    <div>
-        <h1>Healthy Makhana Snacks</h1>
-        <p>Crunchy | Organic | Delicious</p>
-        <button onclick="goToPage()">Explore Now</button>
-    </div>
+</header>
+
+
+<section class="hero" id="home">
+
+<div class="content">
+
+<h1>Premium Organic Makhana</h1>
+
+<p>
+Healthy • Crunchy • Protein Rich • Low Calories
+</p>
+
+<button>Shop Now</button>
+
+</div>
+
+<div class="image">
+
+<img src="head.png"
+alt="Makhana">
+
+</div>
+
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-    <h2>About Makhana</h2>
-    <p>Makhana (Fox Nuts) is a super healthy snack rich in protein, fiber and antioxidants.</p>
+
+<section class="about">
+
+<h2>Why Choose Makhana?</h2>
+
+<p>
+
+Makhana, also known as Fox Nuts or Lotus Seeds,
+is one of India's healthiest snacks.
+Packed with protein, fiber, calcium, magnesium,
+and antioxidants, it supports heart health,
+weight management, diabetes control,
+and improves digestion.
+
+</p>
+
 </section>
 
-<!-- PRODUCTS -->
-<section id="products" class="section">
-    <h2>Our Products</h2>
-    <div class="cards">
-        <div class="card">
-            <img src="ma0.jpg" alt="Roasted Makhana">
-            <h3>Roasted</h3>
-            <p>Light and crunchy snack</p>
-        </div>
-        <div class="card">
-            <img src="ma3.png" alt="Roasted Makhana">
-            <h3>Masala</h3>
-            <p>Spicy and flavorful</p>
-        </div>
-        <div class="card">
-             <img src="ma4.jpg" alt="Flavored Makhana">
-            <h3>Flavored</h3>
-            <p>flavor-coated makhana</p>
-        </div>
-    </div>
+
+<section id="benefits">
+
+<h2>Health Benefits</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fas fa-heart"></i>
+
+<h3>Heart Healthy</h3>
+
+<p>Rich in magnesium and antioxidants.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-dumbbell"></i>
+
+<h3>High Protein</h3>
+
+<p>Excellent snack for gym lovers.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-leaf"></i>
+
+<h3>Organic</h3>
+
+<p>100% Natural with zero preservatives.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-weight"></i>
+
+<h3>Weight Loss</h3>
+
+<p>Low calories and high fiber.</p>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- FOOTER -->
+
+<section id="products">
+
+<h2>Our Products</h2>
+
+<div class="product-grid">
+
+<div class="product">
+
+<img src="classic.png">
+
+<h3>Classic Roasted</h3>
+
+<p>₹199</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="product">
+
+<img src="peri.png">
+
+<h3>Peri Peri</h3>
+
+<p>₹249</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="product">
+
+<img src="masala.png">
+
+<h3>Masala Makhana</h3>
+
+<p>₹229</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="nutrition">
+
+<h2>Nutrition Facts</h2>
+
+<table>
+
+<tr>
+
+<th>Nutrient</th>
+
+<th>Per 100g</th>
+
+</tr>
+
+<tr>
+
+<td>Calories</td>
+
+<td>347 kcal</td>
+
+</tr>
+
+<tr>
+
+<td>Protein</td>
+
+<td>9.7 g</td>
+
+</tr>
+
+<tr>
+
+<td>Carbohydrates</td>
+
+<td>76 g</td>
+
+</tr>
+
+<tr>
+
+<td>Fiber</td>
+
+<td>14.5 g</td>
+
+</tr>
+
+<tr>
+
+<td>Fat</td>
+
+<td>0.1 g</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+
+<section class="testimonial">
+
+<h2>Customer Reviews</h2>
+
+<div class="review">
+
+★★★★★
+
+<p>
+
+"Crispy, delicious and healthy!
+Best evening snack."
+
+</p>
+
+<h4>- Kaushal Chaudhari</h4>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button type="submit">Send</button>
+
+</form>
+
+</section>
+
+
+
 <footer>
-    <p>© 2026 SHILIPFOOD</p>
+
+<p>
+
+© 2026 Premium Makhana | Healthy Lifestyle
+
+</p>
+
 </footer>
 
-<script>
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({behavior: "smooth"});
-}
 
-function goToPage() {
-    window.location.href = "adc.html"; // change page name if needed
-}
-
-function contactMsg() {
-    alert("Contact us at: SHILDIPFOOD@email.com");
-}
-</script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
